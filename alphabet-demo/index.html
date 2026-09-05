@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>L'alphabet arabe — les 28 lettres et leurs 4 formes | Arab Facile</title>
+<meta name="description" content="Les 28 lettres de l'alphabet arabe, regroupées en 8 familles. Cliquez sur une lettre pour voir ses quatre formes selon sa place dans le mot, son nom et sa prononciation. Gratuit, sans inscription.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Arab Facile">
+<meta property="og:title" content="L'alphabet arabe — les 28 lettres et leurs 4 formes">
+<meta property="og:description" content="Cliquez sur une lettre pour voir ses quatre formes, son nom et sa prononciation. Gratuit, sans inscription.">
+<meta property="og:image" content="logo-cyan.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#00BCFB">
+<link rel="icon" href="logo-cyan.png">
+<link rel="apple-touch-icon" href="logo-cyan.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:'Nunito',sans-serif;color:#0B2A3F;background:#fff}
+html{scroll-behavior:smooth}
+a{color:#0378A6}
+a:hover{color:#00BCFB}
+::selection{background:#FFB800;color:#0B2A3F}
+
+@keyframes al-pop{0%{opacity:0;transform:translateY(14px) scale(.96)}100%{opacity:1;transform:none}}
+@keyframes al-ring{0%{transform:scale(1);opacity:.55}100%{transform:scale(1.7);opacity:0}}
+@keyframes al-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+
+.al-tile{transition:transform .16s cubic-bezier(.34,1.5,.64,1),background .16s,border-color .16s,box-shadow .16s}
+.al-tile:hover{transform:translateY(-4px);border-color:#00BCFB;box-shadow:0 10px 22px rgba(11,42,63,.12)}
+.al-tile:active{transform:translateY(0)}
+.af-btn{transition:transform .14s cubic-bezier(.34,1.4,.64,1),filter .14s}
+.af-btn:hover{transform:translateY(-2px);filter:brightness(1.04)}
+.af-btn:active{transform:translateY(3px);border-bottom-width:2px!important}
+.al-chip{transition:background .15s,border-color .15s,color .15s}
+
+@media (max-width:1024px){
+  [data-r="split"]{grid-template-columns:1fr!important}
+  [data-r="panel"]{position:static!important}
+}
+@media (max-width:768px){
+  [data-s]{padding-left:18px!important;padding-right:18px!important}
+  [data-s] h1{font-size:clamp(30px,8.5vw,42px)!important}
+  [data-s] h2{font-size:clamp(24px,6.4vw,30px)!important}
+  [data-r="grid"]{grid-template-columns:repeat(4,1fr)!important}
+  [data-r="forms"]{grid-template-columns:repeat(2,1fr)!important}
+  [data-r="navrow"]{padding:10px 16px!important;gap:10px!important}
+  [data-r="wordmark"]{font-size:20px!important}
+  [data-r="backlink"],footer a,[data-screen-label="Footer"] a{padding:11px 0!important;display:inline-flex!important;align-items:center;min-height:44px}
+  [data-r="stepnav"] a{padding:11px 4px!important;display:inline-flex!important;align-items:center;min-height:44px}
+  [data-r="navbtn-label"]{display:none}
+  [data-r="navbtn"]{padding:0!important;width:46px;height:46px;border-radius:50%!important;justify-content:center;gap:0!important;flex-shrink:0}
+}
+@media (max-width:480px){
+  [data-r="grid"]{grid-template-columns:repeat(3,1fr)!important}
+  [data-r="pad"]{padding:22px!important}
+  [data-r="round"]{border-radius:20px!important}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</helmet>
+
+<!-- ===== EN-TÊTE ===== -->
+<header data-screen-label="Nav" style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:2px solid #EAF2F7">
+  <div data-r="navrow" style="max-width:1240px;margin:0 auto;padding:12px 28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+    <a href="#" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+      <img src="logo-cyan.png" alt="" style="width:38px;aspect-ratio:574/678;height:auto">
+      <span data-r="wordmark" style="font-family:'Baloo Bhaijaan 2',sans-serif;font-weight:800;letter-spacing:-.3px;font-size:23px;color:#0B2A3F">Arab<span style="color:#00BCFB">Facile</span></span>
+    </a>
+    <a data-r="navbtn" class="af-btn" href="{{ waTop }}" target="_blank" rel="noopener" style="margin-left:auto;text-decoration:none;display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-weight:800;font-size:15px;padding:11px 18px;border-radius:14px;border-bottom:4px solid #1DA851;white-space:nowrap">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-3-.2-.3A8 8 0 1 1 12 20zm4.5-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.3 0-.5s-.5-1.3-.7-1.7-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3A3 3 0 0 0 6.4 9c0 1.8 1.3 3.5 1.5 3.7s2.6 4 6.3 5.3c.9.3 1.6.5 2.1.4.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5s-.3-.2-.5-.3z"></path></svg>
+      <span data-r="navbtn-label">Nous écrire</span>
+    </a>
+  </div>
+</header>
+
+<!-- ===== INTRO ===== -->
+<section data-s data-screen-label="Intro" style="background:linear-gradient(180deg,#EFF9FF,#fff)">
+  <div style="max-width:1240px;margin:0 auto;padding:48px 28px 40px;text-align:center">
+    <div style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:2px solid #D9EEF9;border-radius:999px;padding:7px 16px;font-weight:800;font-size:14px;color:#0378A6;margin-bottom:20px">
+      Gratuit · aucune inscription
+    </div>
+    <h1 style="font-family:'Baloo Bhaijaan 2',sans-serif;font-weight:800;letter-spacing:-.3px;font-size:48px;line-height:1.06;margin:0 0 16px">L'alphabet arabe,<br><span style="color:#00BCFB">lettre par lettre</span></h1>
+    <p style="font-size:19px;line-height:1.65;color:#3D5F73;max-width:660px;margin:0 auto 10px">Les vingt-huit lettres, regroupées en huit familles qui se ressemblent. Touchez une lettre pour voir ses quatre formes selon sa place dans le mot, son nom, et l'écouter.</p>
+    <p style="font-size:16.5px;color:#5B7A8C;max-width:600px;margin:0 auto">C'est le tableau que nous utilisons en cours. Servez-vous&nbsp;: il n'y a rien à télécharger.</p>
+  </div>
+</section>
+
+<!-- ===== TABLEAU ===== -->
+<section data-s data-screen-label="Tableau" style="max-width:1240px;margin:0 auto;padding:10px 28px 70px">
+
+  <!-- filtres -->
+  <div style="display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-bottom:30px">
+    <sc-for list="{{ filters }}" as="f" hint-placeholder-count="9">
+      <div class="al-chip" onClick="{{ f.go }}" style="{{ f.st }}">{{ f.label }}</div>
+    </sc-for>
+  </div>
+
+  <div data-r="split" style="display:grid;grid-template-columns:1fr 400px;gap:30px;align-items:start">
+
+    <!-- grille des lettres -->
+    <div>
+      <div data-r="grid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:11px">
+        <sc-for list="{{ letters }}" as="l" hint-placeholder-count="28">
+          <div class="al-tile" onClick="{{ l.go }}" style="{{ l.st }}">
+            <div style="font-family:'Baloo Bhaijaan 2',sans-serif;font-weight:800;font-size:38px;line-height:1;color:{{ l.ink }};direction:rtl">{{ l.iso }}</div>
+            <div style="font-weight:800;font-size:12.5px;color:{{ l.sub }};margin-top:5px">{{ l.name }}</div>
+            <sc-if value="{{ l.rec }}" hint-placeholder-val="{{ false }}">
+              <span style="position:absolute;top:7px;right:8px;width:7px;height:7px;border-radius:50%;background:#2FBF7E"></span>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:20px;color:#5B7A8C;font-size:14.5px;font-weight:700">
+        <span style="display:inline-flex;align-items:center;gap:7px"><span style="width:11px;height:11px;border-radius:3px;background:#FFB800"></span>ne s'attache pas à gauche</span>
+        <span style="display:inline-flex;align-items:center;gap:7px"><span style="width:11px;height:11px;border-radius:3px;background:#00BCFB"></span>lettre sélectionnée</span>
+        <span style="display:inline-flex;align-items:center;gap:7px"><span style="width:9px;height:9px;border-radius:50%;background:#2FBF7E"></span>prononciation disponible</span>
+      </div>
+    </div>
+
+    <!-- panneau détail -->
+    <div data-r="panel" style="position:sticky;top:92px">
+      <div data-r="pad round" style="background:#0B2A3F;border-radius:24px;padding:30px 28px;position:relative;overflow:hidden;animation:al-pop .32s cubic-bezier(.34,1.4,.64,1)">
+        <div style="position:absolute;top:-34%;right:-20%;width:56%;aspect-ratio:1;border-radius:50%;background:#00BCFB;opacity:.14"></div>
+
+        <div style="position:relative">
+          <div style="display:flex;align-items:flex-start;gap:18px;margin-bottom:22px">
+            <div style="font-family:'Baloo Bhaijaan 2',sans-serif;font-weight:800;font-size:78px;line-height:.9;color:#35C6FB;direction:rtl">{{ cur.iso }}</div>
+            <div style="flex:1;min-width:0;padding-top:6px">
+              <div style="font-family:'Baloo Bhaijaan 2',sans-serif;font-weight:800;font-size:26px;color:#fff;line-height:1.1">{{ cur.name }}</div>
+              <div style="color:#B9CEDB;font-weight:700;font-size:15.5px;margin-top:3px">se prononce «&nbsp;{{ cur.sound }}&nbsp;»</div>
+              <div style="display:inline-block;background:{{ cur.famBg }};color:{{ cur.famInk }};font-weight:800;font-size:11.5px;padding:4px 11px;border-radius:999px;margin-top:9px">{{ cur.famName }}</div>
+            </div>
+          </div>
+
+          <!-- écouter -->
+          <div style="display:flex;align-items:center;gap:13px;margin-bottom:22px">
+            <a class="af-btn" onClick="{{ playCur }}" style="position:relative;text-decoration:none;display:inline-flex;align-items:center;gap:10px;background:#00BCFB;color:#fff;font-family:'Baloo Bhaijaan 2',sans-serif;font-weight:800;font-size:17px;padding:13px 24px;border-radius:14px;border-bottom:4px solid #0398C9;cursor:pointer">
+              <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H3v6h3l5 4V5z"></path><path d="M16 8.5a4.5 4.5 0 0 1 0 7"></path><path d="M19 5.5a8.5 8.5 0 0 1 0 13"></path></svg>
+              Écouter
+            </a>
+            <div style="color:#8FB0C4;font-weight:700;font-size:14px;line-height:1.4">{{ audioNote }}</div>
+          </div>
+
+          <!-- quatre formes -->
+          <div style="color:#FFB800;font-weight:800;font-size:11.5px;letter-spacing:.5px;margin-bottom:11px">SES QUATRE FORMES</div>
+          <div data-r="forms" style="display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:20px">
+            <sc-for list="{{ curForms }}" as="f" hint-placeholder-count="4">
+              <div style="background:#12405E;border-radius:13px;padding:14px 8px;text-align:center">
+                <div style="font-family:'Baloo Bhaijaan 2',sans-serif;font-weight:800;font-size:32px;line-height:1;color:#fff;direction:rtl;margin-bottom:7px">{{ f.shape }}</div>
+                <div style="color:#8FB0C4;font-weight:800;font-size:11.5px;line-height:1.3">{{ f.label }}</div>
+              </div>
+            </sc-for>
+          </div>
+
+          <!-- mot exemple -->
+          <div style="background:#0F344D;border:1px solid #1C4A66;border-radius:16px;padding:18px 20px;margin-bottom:16px">
+            <div style="color:#8FB0C4;font-weight:800;font-size:11.5px;letter-spacing:.5px;margin-bottom:9px">DANS UN MOT</div>
+            <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+              <div style="font-family:'Baloo Bhaijaan 2',sans-serif;font-weight:800;font-size:34px;color:#fff;direction:rtl;line-height:1.2">{{ cur.word }}</div>
+              <div>
+                <div style="color:#35C6FB;font-weight:800;font-size:16px">{{ cur.tr }}</div>
+                <div style="color:#B9CEDB;font-weight:700;font-size:15px">{{ cur.fr }}</div>
+              </div>
+            </div>
+          </div>
+
+          <p style="color:#B9CEDB;font-size:15.5px;line-height:1.6;margin:0">{{ cur.tip }}</p>
+
+          <!-- navigation -->
+          <div data-r="stepnav" style="display:flex;align-items:center;gap:10px;margin-top:22px;padding-top:20px;border-top:1px solid #1C4A66">
+            <a onClick="{{ prev }}" style="color:#8FB0C4;font-weight:800;font-size:15px;cursor:pointer;text-decoration:none">← Précédente</a>
+            <div style="margin-left:auto;color:#5E7E92;font-weight:800;font-size:14px">{{ curPos }}</div>
+            <a onClick="{{ next }}" style="color:#35C6FB;font-weight:800;font-size:15px;cursor:pointer;text-decoration:none;margin-left:auto">Suivante →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== LES HUIT FAMILLES ===== -->
+<section data-s data-screen-label="Familles" style="background:#EFF9FF;border-top:2px solid #D9EEF9;border-bottom:2px solid #D9EEF9">
+  <div style="max-width:1000px;margin:0 auto;padding:64px 28px">
+    <div style="text-align:center;margin-bottom:34px">
+      <h2 style="font-family:'Baloo Bhaijaan 2',sans-serif;font-weight:800;letter-spacing:-.3px;font-size:36px;margin:0 0 12px">Pourquoi huit familles</h2>
+      <p style="color:#5B7A8C;font-size:18px;line-height:1.65;max-width:620px;margin:0 auto">Vingt-huit lettres apprises une par une, c'est vingt-huit efforts. Regroupées par corps commun, il n'y a plus que huit formes à retenir — et les points font le reste.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <sc-for list="{{ famList }}" as="f" hint-placeholder-count="8">
+        <div style="background:#fff;border:2px solid #D9EEF9;border-radius:18px;padding:20px 24px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+          <div style="font-family:'Baloo Bhaijaan 2',sans-serif;font-weight:800;font-size:28px;color:{{ f.ink }};direction:rtl;line-height:1;min-width:130px">{{ f.letters }}</div>
+          <div style="flex:1;min-width:200px">
+            <div style="font-family:'Baloo Bhaijaan 2',sans-serif;font-weight:800;font-size:19px">{{ f.name }}</div>
+            <div style="color:#5B7A8C;font-size:15.5px;line-height:1.5">{{ f.note }}</div>
+          </div>
+          <div style="color:#5B7A8C;font-weight:800;font-size:14px;white-space:nowrap">{{ f.count }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section data-s data-screen-label="CTA" style="max-width:1000px;margin:0 auto;padding:70px 28px 80px">
+  <div data-r="pad round" style="background:#0B2A3F;border-radius:26px;padding:44px 42px;text-align:center;position:relative;overflow:hidden">
+    <div style="position:absolute;bottom:-40%;left:-14%;width:44%;aspect-ratio:1;border-radius:50%;background:#FFB800;opacity:.13"></div>
+    <div style="position:relative">
+      <img src="osaid-happy.svg" alt="" style="width:96px;aspect-ratio:574/678;height:auto;margin-bottom:16px;animation:al-float 5s ease-in-out infinite">
+      <h2 style="font-family:'Baloo Bhaijaan 2',sans-serif;font-weight:800;letter-spacing:-.3px;font-size:34px;color:#fff;margin:0 0 14px;line-height:1.15">Reconnaître les lettres, c'est la première marche</h2>
+      <p style="color:#B9CEDB;font-size:18px;line-height:1.65;margin:0 auto 28px;max-width:520px">La suite, c'est les voyelles, les liaisons, et la lecture de vos premiers mots. C'est ce que fait le livret, dans l'ordre.</p>
+      <div style="display:flex;gap:13px;justify-content:center;flex-wrap:wrap">
+        <a class="af-btn" href="{{ waCta }}" target="_blank" rel="noopener" style="text-decoration:none;display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#fff;font-family:'Baloo Bhaijaan 2',sans-serif;font-weight:800;font-size:18px;padding:16px 30px;border-radius:16px;border-bottom:5px solid #1DA851">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-3-.2-.3A8 8 0 1 1 12 20zm4.5-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.3 0-.5s-.5-1.3-.7-1.7-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3A3 3 0 0 0 6.4 9c0 1.8 1.3 3.5 1.5 3.7s2.6 4 6.3 5.3c.9.3 1.6.5 2.1.4.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5s-.3-.2-.5-.3z"></path></svg>
+          Poser une question
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PIED DE PAGE ===== -->
+<footer data-s data-screen-label="Footer" style="background:#0B2A3F;color:#fff">
+  <div style="max-width:1240px;margin:0 auto;padding:44px 28px 30px;display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start">
+    <div style="flex:1;min-width:240px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+        <img src="logo-light.png" alt="" style="width:36px;aspect-ratio:574/678;height:auto">
+        <span style="font-family:'Baloo Bhaijaan 2',sans-serif;font-weight:800;font-size:21px">Arab<span style="color:#35C6FB">Facile</span></span>
+      </div>
+      <p style="color:#8FB0C4;font-size:15px;line-height:1.6;margin:0;max-width:300px">Apprendre l'arabe aux enfants francophones, depuis la maison. 12 ans d'enseignement, 200 élèves accompagnés.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-family:'Baloo Bhaijaan 2',sans-serif;font-weight:800;font-size:16px;margin-bottom:4px">Nous joindre</div>
+      <a href="{{ waTop }}" target="_blank" rel="noopener" style="color:#8FB0C4;text-decoration:none;font-weight:700;font-size:15px">WhatsApp</a>
+    </div>
+  </div>
+  <div style="border-top:1px solid #1C4A66;padding:18px 28px;text-align:center;color:#7E9BAD;font-size:14px">© 2026 Arab Facile</div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+// ═══════════════════════════════════════════════════════════════════
+//  À CONFIGURER
+// ═══════════════════════════════════════════════════════════════════
+const WHATSAPP = '212677186542';
+
+//  AUDIO — un fichier court par lettre (1 à 2 secondes), le nom de la
+//  lettre prononcé, puis son son. Déposez-les dans un dossier "audio/"
+//  à côté de cette page, nommés d'après la clé de chaque lettre :
+//      audio/alif.mp3   audio/ba.mp3   audio/ta.mp3 …
+//  Les quinze premières sont en place. Restent à enregistrer, dans cet ordre :
+//      ط tta   ظ dhha   ع ayn   غ ghayn   ف fa    ق qaf   ك kaf
+//      ل laam  م miim   ن nuun  ه haa     و waw   ي yaa
+//  Déposez le fichier, ajoutez la clé dans RECORDED plus bas, c'est tout.
+const AUDIO_DIR = 'audio/';
+// ═══════════════════════════════════════════════════════════════════
+
+const wa = (msg) => 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg);
+
+const FAMS = {
+  alif:   { name:'Alif',              ink:'#0378A6', bg:'#EFF9FF', fg:'#0378A6', note:"Seule lettre à ne porter aucun son propre : elle sert de support et allonge le « a ». Elle ne s'attache jamais à gauche." },
+  cuvette:{ name:'La cuvette',        ink:'#0378A6', bg:'#EFF9FF', fg:'#0378A6', note:"Même corps arrondi, distingué uniquement par les points. C'est la famille la plus fréquente à l'écrit." },
+  boucle: { name:'La boucle',         ink:'#0378A6', bg:'#EFF9FF', fg:'#0378A6', note:"Un ventre rond fermé par une queue. Un point dessous, aucun, puis un dessus." },
+  libre:  { name:'Sans liaison',      ink:'#B98600', bg:'#FFF7E6', fg:'#8A6400', note:"Ces lettres refusent de s'attacher à celle qui suit. C'est ce qui crée les espaces au milieu des mots." },
+  dents:  { name:'Les dents',         ink:'#0378A6', bg:'#EFF9FF', fg:'#0378A6', note:"Trois dents alignées, avec ou sans points au-dessus." },
+  emph:   { name:'Les emphatiques',   ink:'#5A48CC', bg:'#F2F0FE', fg:'#5A48CC', note:"Un anneau prolongé d'une queue. Le son se prononce en creux, plus grave, la langue tirée vers l'arrière." },
+  gorge:  { name:'Les sons de gorge', ink:'#5A48CC', bg:'#F2F0FE', fg:'#5A48CC', note:"Les sons qui viennent du fond de la bouche. Ce sont ceux qui demandent le plus d'écoute." },
+  fin:    { name:'Les dernières',     ink:'#0378A6', bg:'#EFF9FF', fg:'#0378A6', note:"Quatre lettres aux corps très distincts, faciles à reconnaître une fois le reste acquis." },
+};
+
+// iso · initiale · médiane · finale
+const L = [
+  { k:'alif', noJoin:true, iso:'ا', name:"Alif",  sound:'â',   fam:'alif',    f:['ا','ا','ـا','ـا'], word:'أَسَد',  tr:'asad',   fr:'le lion',    tip:"Un simple trait vertical. Après elle, la lettre suivante repart de sa forme de début." },
+  { k:'ba',   iso:'ب', name:"Bâ'",   sound:'b',   fam:'cuvette', f:['ب','بـ','ـبـ','ـب'], word:'بَاب',   tr:'bâb',    fr:'la porte',   tip:"Un point en dessous. C'est le modèle de la famille : retenez le corps, les points suivront." },
+  { k:'ta',   iso:'ت', name:"Tâ'",   sound:'t',   fam:'cuvette', f:['ت','تـ','ـتـ','ـت'], word:'تُفَّاح', tr:'toffâh', fr:'la pomme',   tip:"Deux points au-dessus. Même corps que Bâ', son tout autre." },
+  { k:'tha',  iso:'ث', name:"Thâ'",  sound:'th',  fam:'cuvette', f:['ث','ثـ','ـثـ','ـث'], word:'ثَعْلَب', tr:'thaʿlab',fr:'le renard',  tip:"Trois points au-dessus. Le son du « th » anglais de « think »." },
+  { k:'jiim',  iso:'ج', name:"Jîm",   sound:'j',   fam:'boucle',  f:['ج','جـ','ـجـ','ـج'], word:'جَمَل',  tr:'jamal',  fr:'le chameau', tip:"Un point à l'intérieur du ventre. Au milieu d'un mot, le ventre se réduit beaucoup." },
+  { k:'hha',  iso:'ح', name:"Ḥâ'",   sound:'h',   fam:'boucle',  f:['ح','حـ','ـحـ','ـح'], word:'حُوت',   tr:'hout',   fr:'la baleine', tip:"Sans point. Un « h » soufflé du fond de la gorge, plus appuyé que le « h » français." },
+  { k:'kha',  iso:'خ', name:"Khâ'",  sound:'kh',  fam:'boucle',  f:['خ','خـ','ـخـ','ـخ'], word:'خُبْز',  tr:'khubz',  fr:'le pain',    tip:"Un point au-dessus. Le son du « ch » allemand de « Bach »." },
+  { k:'daal', noJoin:true,  iso:'د', name:"Dâl",   sound:'d',   fam:'libre',   f:['د','د','ـد','ـد'], word:'دَار',   tr:'dâr',    fr:'la maison',  tip:"Un crochet simple, sans point. Elle ne s'attache pas à la lettre suivante." },
+  { k:'thaal', noJoin:true, iso:'ذ', name:"Dhâl",  sound:'dh',  fam:'libre',   f:['ذ','ذ','ـذ','ـذ'], word:'ذَهَب',  tr:'dhahab', fr:"l'or",       tip:"Comme Dâl, avec un point au-dessus. Le « th » sonore de « this »." },
+  { k:'ra', noJoin:true,   iso:'ر', name:"Râ'",   sound:'r',   fam:'libre',   f:['ر','ر','ـر','ـر'], word:'رَجُل',  tr:'rajul',  fr:"l'homme",    tip:"Une courbe qui descend sous la ligne. Le « r » est roulé, comme en espagnol." },
+  { k:'zay', noJoin:true,  iso:'ز', name:"Zây",   sound:'z',   fam:'libre',   f:['ز','ز','ـز','ـز'], word:'زَيْت',  tr:'zayt',   fr:"l'huile",    tip:"Comme Râ', avec un point au-dessus." },
+  { k:'siin',  iso:'س', name:"Sîn",   sound:'s',   fam:'dents',   f:['س','سـ','ـسـ','ـس'], word:'سَمَك',  tr:'samak',  fr:'le poisson', tip:"Trois dents suivies d'une cuvette. Au milieu d'un mot, la cuvette disparaît." },
+  { k:'shiin', iso:'ش', name:"Shîn",  sound:'ch',  fam:'dents',   f:['ش','شـ','ـشـ','ـش'], word:'شَمْس',  tr:'shams',  fr:'le soleil',  tip:"Comme Sîn, avec trois points au-dessus. Le « ch » de « chat »." },
+  { k:'saad',  iso:'ص', name:"Ṣâd",   sound:'s',   fam:'emph',    f:['ص','صـ','ـصـ','ـص'], word:'صَبَاح', tr:'sabâh',  fr:'le matin',   tip:"Un « s » emphatique, prononcé plus en creux que Sîn. La différence s'entend." },
+  { k:'daad',  iso:'ض', name:"Ḍâd",   sound:'d',   fam:'emph',    f:['ض','ضـ','ـضـ','ـض'], word:'ضَوْء',  tr:'daw',    fr:'la lumière', tip:"Un point au-dessus de l'anneau. C'est la lettre la plus caractéristique de l'arabe." },
+  { k:'tta',  iso:'ط', name:"Ṭâ'",   sound:'t',   fam:'emph',    f:['ط','طـ','ـطـ','ـط'], word:'طَائِر', tr:'tâ\'ir', fr:"l'oiseau",   tip:"Un anneau surmonté d'un trait droit. Sa forme change très peu selon la position." },
+  { k:'dhha',  iso:'ظ', name:"Ẓâ'",   sound:'dh',  fam:'emph',    f:['ظ','ظـ','ـظـ','ـظ'], word:'ظِل',    tr:'dhill',  fr:"l'ombre",    tip:"Comme Ṭâ', avec un point. La plus rare des quatre emphatiques." },
+  { k:'ayn',  iso:'ع', name:"ʿAyn",  sound:'ʿa',  fam:'gorge',   f:['ع','عـ','ـعـ','ـع'], word:'عَيْن',  tr:'ʿayn',   fr:"l'œil",      tip:"Aucun équivalent en français. Un son serré, produit au fond de la gorge." },
+  { k:'ghayn',iso:'غ', name:"Ghayn", sound:'gh',  fam:'gorge',   f:['غ','غـ','ـغـ','ـغ'], word:'غُرَاب', tr:'ghurâb', fr:'le corbeau', tip:"Comme ʿAyn, avec un point. Proche d'un « r » grasseyé parisien." },
+  { k:'fa',   iso:'ف', name:"Fâ'",   sound:'f',   fam:'gorge',   f:['ف','فـ','ـفـ','ـف'], word:'فِيل',   tr:'fîl',    fr:"l'éléphant", tip:"Un petit anneau avec un point au-dessus, prolongé d'une queue plate." },
+  { k:'qaf',  iso:'ق', name:"Qâf",   sound:'q',   fam:'gorge',   f:['ق','قـ','ـقـ','ـق'], word:'قَلَم',  tr:'qalam',  fr:'le stylo',   tip:"Deux points au-dessus. Un « k » profond, articulé bien plus en arrière." },
+  { k:'kaf',  iso:'ك', name:"Kâf",   sound:'k',   fam:'fin',     f:['ك','كـ','ـكـ','ـك'], word:'كِتَاب', tr:'kitâb',  fr:'le livre',   tip:"Sa forme isolée et sa forme attachée se ressemblent peu : regardez bien les deux." },
+  { k:'laam',  iso:'ل', name:"Lâm",   sound:'l',   fam:'fin',     f:['ل','لـ','ـلـ','ـل'], word:'لَيْل',  tr:'layl',   fr:'la nuit',    tip:"Un grand trait vertical qui descend en crochet. Très fréquente." },
+  { k:'miim',  iso:'م', name:"Mîm",   sound:'m',   fam:'fin',     f:['م','مـ','ـمـ','ـم'], word:'مَاء',   tr:'mâ',     fr:"l'eau",      tip:"Un petit rond plein. En fin de mot, il traîne une queue vers le bas." },
+  { k:'nuun',  iso:'ن', name:"Nûn",   sound:'n',   fam:'cuvette', f:['ن','نـ','ـنـ','ـن'], word:'نَار',   tr:'nâr',    fr:'le feu',     tip:"Une cuvette plus profonde que Bâ', avec un point au-dessus." },
+  { k:'haa',   iso:'ه', name:"Hâ'",   sound:'h',   fam:'fin',     f:['ه','هـ','ـهـ','ـه'], word:'هِلَال', tr:'hilâl',  fr:'le croissant', tip:"C'est la lettre dont la forme varie le plus selon sa position. À travailler séparément." },
+  { k:'waw', noJoin:true,  iso:'و', name:"Wâw",   sound:'w',   fam:'libre',   f:['و','و','ـو','ـو'], word:'وَرْد',  tr:'ward',   fr:'la rose',    tip:"Un rond avec une queue. Elle sert aussi à allonger le son « ou ». Ne s'attache pas à gauche." },
+  { k:'yaa',   iso:'ي', name:"Yâ'",   sound:'y',   fam:'cuvette', f:['ي','يـ','ـيـ','ـي'], word:'يَد',    tr:'yad',    fr:'la main',    tip:"Deux points en dessous. Elle allonge aussi le son « î »." },
+];
+
+const FORM_LABELS = ['Isolée', 'Au début', 'Au milieu', 'À la fin'];
+
+//  Lettres déjà enregistrées. Ajoutez la clé ici en même temps que le
+//  fichier audio/<clé>.mp3, et la pastille sonore apparaît sur la lettre.
+const RECORDED = ['alif','ba','ta','tha','jiim','hha','kha','daal','thaal',
+  'ra','zay','siin','shiin','saad','daad'];
+
+class Component extends DCLogic {
+  state = { sel:0, filter:'tous', audio:'' };
+
+  play = () => {
+    const l = L[this.state.sel];
+    const a = new Audio(AUDIO_DIR + l.k + '.mp3');
+    a.play()
+      .then(() => this.setState({ audio:'' }))
+      .catch(() => this.setState({ audio:'manquant' }));
+  };
+
+  move = (d) => {
+    const list = this.visible();
+    const cur = L[this.state.sel];
+    const i = list.indexOf(cur);
+    const n = list[(i + d + list.length) % list.length];
+    this.setState({ sel:L.indexOf(n), audio:'' });
+  };
+
+  visible = () => {
+    const f = this.state.filter;
+    if (f === 'tous') return L;
+    if (f === 'libre') return L.filter(l => l.noJoin);
+    return L.filter(l => l.fam === f);
+  };
+
+  renderVals() {
+    const s = this.state;
+    const cur = L[s.sel];
+    const fam = FAMS[cur.fam];
+    const vis = this.visible();
+
+    const chip = (on) => on
+      ? 'background:#0B2A3F;color:#fff;font-weight:800;font-size:14px;padding:11px 17px;border-radius:12px;cursor:pointer;border:2px solid #0B2A3F;white-space:nowrap'
+      : 'background:#fff;color:#456878;font-weight:800;font-size:14px;padding:11px 17px;border-radius:12px;cursor:pointer;border:2px solid #EAF2F7;white-space:nowrap';
+
+    return {
+      waTop: wa("Bonjour, j'ai une question sur l'apprentissage de l'arabe."),
+      waCta: wa("Bonjour, j'ai consulté le tableau de l'alphabet et je souhaite en savoir plus."),
+
+      filters: [{ id:'tous', label:'Les 28 lettres' }]
+        .concat(Object.keys(FAMS).map(k => ({ id:k, label:FAMS[k].name })))
+        .map(f => ({ ...f, go: () => this.setState({ filter:f.id }), st: chip(s.filter === f.id) })),
+
+      letters: L.map((l,i) => {
+        const shown = s.filter === 'tous'
+          || (s.filter === 'libre' ? !!l.noJoin : l.fam === s.filter);
+        const on = i === s.sel;
+        const free = !!l.noJoin;
+        let bg = '#fff', bd = '#EAF2F7', ink = '#0B2A3F', sub = '#5B7A8C';
+        if (on) { bg = '#0B2A3F'; bd = '#00BCFB'; ink = '#35C6FB'; sub = '#8FB0C4'; }
+        else if (free) { bg = '#FFFBF0'; bd = '#FCE8BA'; ink = '#8A6400'; sub = '#8A6400'; }
+        return { iso:l.iso, name:l.name, ink, sub, rec: RECORDED.includes(l.k),
+          go: () => this.setState({ sel:i, audio:'' }),
+          st: 'position:relative;background:' + bg + ';border:2px solid ' + bd + ';border-radius:16px;padding:15px 8px 12px;text-align:center;cursor:pointer;'
+            + (shown ? '' : 'opacity:.22;pointer-events:none;') };
+      }),
+
+      cur: { iso:cur.iso, name:cur.name, sound:cur.sound, word:cur.word, tr:cur.tr, fr:cur.fr, tip:cur.tip,
+        famName:fam.name, famBg:fam.bg, famInk:fam.fg },
+      curForms: cur.f.map((shape,i) => ({ shape, label:FORM_LABELS[i] })),
+      curPos: (vis.indexOf(cur) + 1) + ' / ' + vis.length,
+
+      playCur: this.play,
+      audioNote: RECORDED.includes(cur.k)
+        ? 'La voix de votre enseignante'
+        : "Cette lettre n'est pas encore enregistrée.",
+
+      prev: () => this.move(-1),
+      next: () => this.move(1),
+
+      famList: Object.keys(FAMS).map(k => {
+        const mine = k === 'libre' ? L.filter(l => l.noJoin) : L.filter(l => l.fam === k);
+        return { name:FAMS[k].name, note:FAMS[k].note, ink:FAMS[k].ink,
+          letters: mine.map(l => l.iso).join(' '),
+          count: mine.length === 1 ? '1 lettre' : mine.length + ' lettres' };
+      }),
+    };
+  }
+}
+</script>
+</body>
+</html>
